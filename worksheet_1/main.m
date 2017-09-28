@@ -1,8 +1,12 @@
 %Initialization
 clear, close all, clc;
 
-source = {'1', 'a', 'a', '2', '2', '4', 'f', 'd', 'f'};
-source2 = [1, 2, 2, 3];
-source3 = ['a', 'b', 'c'];
+%add paths
+addpath /1
+addpath /2
 
-symbols_frequency(source);
+source = {'1', 'a', 'a', '2', '2', '4', 'f', 'd', 'f'};
+
+%symbols_frequency(source);
+
+calc_entropy(source)
