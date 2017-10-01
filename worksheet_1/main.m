@@ -42,8 +42,9 @@ end
 guitarSolo_audio = num2cell(guitarSolo_audio);
 cell_audio_alphabet = {};
 j = 1;
-for i = -1:2/65536:1-(2/65536);
-  cell_audio{1, j} = num2str(i);
+d = 2/256;
+for i = -1:d:1-d
+  cell_audio_alphabet{1, j} = num2str(i);
   j = j + 1;
 end
 guitarSolo_audio_str = cellfun(@(x) num2str(x), guitarSolo_audio, 'un', 0);
