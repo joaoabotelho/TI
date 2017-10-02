@@ -1,6 +1,18 @@
-function symbols_frequency(symbols)
-  unique_symbols = unique(symbols);
-  frequency = cellfun(@(x) sum(ismember(symbols, x)), unique_symbols);
+function symbols_frequency(symbols, alphabet)
 
-  histogram('Categories', unique_symbols, 'BinCounts', frequency);
+  [symbols_h, symbols_w] = size(symbols);
+  frequency = [];
+
+  for k = 1:length(alphabet)
+    frequency(1, k) = 0;
+    for i = 1:symbols_h
+      for j = 1:symbols_w
+        if strcmp(symbols{i, j}, alphabet{1, k})
+          frequency(1, k) = frequency(1, k) + 1;
+        end
+      end
+    end
+  end
+
+  histogram('Categories', alphabet, 'BinCounts', frequency);
 end
