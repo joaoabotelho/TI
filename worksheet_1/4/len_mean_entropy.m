@@ -1,4 +1,4 @@
-function [emean, entropy] = len_mean_entropy(source, n)
+function [entropy, bmean] = huff_len_mean(source, n)
 
   freq = [];
   new_source = [];

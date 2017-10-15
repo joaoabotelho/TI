@@ -14,6 +14,8 @@ homer_img = imread('homer.bmp');
 homerBin_img= imread('homerBin.bmp');
 [guitarSolo_audio, fs] = audioread('guitarSolo.wav');
 english_txt = fileread('english.txt');
+english_txt(regexp(english_txt, '[^a-zA-Z]')) = [];
+english_txt(size(english_txt,2) + 1) = ' ';
 
 %alphabets
 image_alphabet = (0:256);
@@ -60,26 +62,36 @@ text_alphabet = ['A':'Z', 'a':'z'];
 %disp(sprintf('english.txt --> %f', calc_entropy(double(english_txt), double(text_alphabet))));
 
 %hufflen
-disp(sprintf('Hufflen:'));
+disp(sprintf('Hufflen singles  entropy // bmean:'));
 
-disp(sprintf('kid_img --> %f', huff_len_mean_v3(kid_img, 1)));
+[entropy, bmean] = len_mean_entropy(kid_img, 1);
+disp(sprintf('kid_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('homer.bmp --> %f', huff_len_mean_v3(homer_img, 1)));
+[entropy, bmean] = len_mean_entropy(homer_img, 1);
+disp(sprintf('homer_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('homerbin.bmp --> %f', huff_len_mean_v3(homerBin_img, 1)));
+[entropy, bmean] = len_mean_entropy(homerBin_img, 1);
+disp(sprintf('homerBin_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('guitarSolo.wav --> %f', huff_len_mean_v3(guitarSolo_audio, 1)));
+[entropy, bmean] = len_mean_entropy(guitarSolo_audio, 1);
+disp(sprintf('guitarSolo_audio --> %f --> %f', entropy, bmean));
 
-disp(sprintf('english.txt --> %f', huff_len_mean_v3(double(english_txt), 1)));
+[entropy, bmean] = len_mean_entropy(double(english_txt), 1);
+disp(sprintf('english_txt --> %f --> %f', entropy, bmean));
 
-disp(sprintf('\nHufflen grouped in pairs:'));
+disp(sprintf('\nHufflen pairs  entropy // bmean:'));
 
-disp(sprintf('kid_img --> %f', huff_len_mean_v3(kid_img, 2)));
+[entropy, bmean] = len_mean_entropy(kid_img, 2);
+disp(sprintf('kid_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('homer.bmp --> %f', huff_len_mean_v3(homer_img, 2)));
+[entropy, bmean] = len_mean_entropy(homer_img, 2);
+disp(sprintf('homer_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('homerbin.bmp --> %f', huff_len_mean_v3(homerBin_img, 2)));
+[entropy, bmean] = len_mean_entropy(homerBin_img, 2);
+disp(sprintf('homerBin_img --> %f --> %f', entropy, bmean));
 
-disp(sprintf('guitarSolo.wav --> %f', huff_len_mean_v3(guitarSolo_audio', 2)));
+[entropy, bmean] = len_mean_entropy(guitarSolo_audio', 2);
+disp(sprintf('guitarSolo_audio --> %f --> %f', entropy, bmean));
 
-disp(sprintf('english.txt --> %f', huff_len_mean_v3(double(english_txt), 2)));
+[entropy, bmean] = len_mean_entropy(double(english_txt), 2);
+disp(sprintf('english_txt --> %f --> %f', entropy, bmean));
