@@ -1,8 +1,16 @@
-function visualizacaoGrafica(sinal, fs)
+function visualizacaoGrafica(sinal, fs, tIni, tFim)
   Ts = 1/fs;
   [m,n] = size(sinal);
   duracao = m * Ts;
-  A = [0:Ts:duracao-Ts];
+
+  if nargin == 2;
+    tIni = 0;
+    tFim = duracao-Ts;
+  elseif nargin == 3;
+    tFim = duracao+Ts;
+  end
+
+  A = [tIni:Ts:tFim]; 
   subplot(211)
   plot(A, sinal(:,1))
   title('Canal esquerdo');
