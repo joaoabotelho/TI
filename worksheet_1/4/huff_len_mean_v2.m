@@ -22,7 +22,7 @@ function bmean = huff_len_mean(source, n)
 
   hl = hufflen(freq);
   probabilities = freq ./ sum(freq);
-  bmean = sum(probabilities .* hl)/n;
+  bmean = sum(probabilities .* log2(probabilities))/n;
 
 end
 

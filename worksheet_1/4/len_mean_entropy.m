@@ -1,8 +1,7 @@
-function [entropy, bmean] = huff_len_mean(source, n)
+function [entropy, bmean, freq, v] = len_mean_entropy(source, n)
 
   freq = [];
   new_source = [];
-  k = 1;
 
   for i = 1:n:size(source,2)
     new_source = vertcat(new_source, source(:,i:i+n-1));
@@ -18,7 +17,7 @@ function [entropy, bmean] = huff_len_mean(source, n)
   hl = hufflen(freq);
   probabilities = freq ./ sum(freq);
   bmean = sum(probabilities .* hl)/n;
+  v = var(hl, probabilities);
   entropy = -sum(probabilities .* log2(probabilities))/n;
-  %bmean = 0;
 
 end
