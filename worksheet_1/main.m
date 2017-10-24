@@ -19,7 +19,7 @@ english_txt(regexp(english_txt, '[^a-zA-Z]')) = [];
 english_txt(size(english_txt,2)) = [];
 
 %alphabets
-image_alphabet = (0:256);
+image_alphabet = (0:255);
 
 audio_info = audioinfo('guitarSolo.wav');
 d = 2/2^audio_info.BitsPerSample;
@@ -63,7 +63,7 @@ text_alphabet = ['A':'Z', 'a':'z'];
 %disp(sprintf('english.txt --> %f', calc_entropy(double(english_txt), double(text_alphabet))));
 
 %hufflen
-disp(sprintf('Hufflen singles  entropy // bmean:'));
+%disp(sprintf('Hufflen singles  entropy // bmean:'));
 
 %[entropy, bmean, freq, v] = len_mean_entropy(kid_img, 1);
 %disp(sprintf('kid_img --> %f --> %f --> %f', entropy, bmean, v));
@@ -82,36 +82,36 @@ disp(sprintf('Hufflen singles  entropy // bmean:'));
 %[entropy, bmean, freq,  v] = len_mean_entropy(double(english_txt), 1);
 %disp(sprintf('english_txt --> %f --> %f --> %f', entropy, bmean, v));
 
-%tic
-%disp(sprintf('\nHufflen pairs  entropy // bmean:'));
+tic
+disp(sprintf('\nhufflen pairs  entropy // bmean:'));
 
-%[entropy, bmean, freq, v] = len_mean_entropy(kid_img, 2);
-%disp(sprintf('kid_img --> %f --> %f --> %f', entropy, bmean, v));
-%%figure(1)
-%%bar(freq)
+[entropy, bmean, freq, v] = len_mean_entropy(kid_img, 2);
+disp(sprintf('kid_img --> %f --> %f --> %f', entropy, bmean, v));
+%figure(1)
+%bar(freq)
 
-%[entropy, bmean, freq, v] = len_mean_entropy(homer_img, 2);
-%disp(sprintf('homer_img --> %f --> %f --> %f', entropy, bmean, v));
+[entropy, bmean, freq, v] = len_mean_entropy(homer_img, 2);
+disp(sprintf('homer_img --> %f --> %f --> %f', entropy, bmean, v));
 %figure(2)
 %bar(freq)
 
-%[entropy, bmean, freq, v] = len_mean_entropy(homerBin_img, 2);
-%disp(sprintf('homerBin_img --> %f --> %f --> %f', entropy, bmean, v));
-%%figure(3)
-%%bar(freq)
+[entropy, bmean, freq, v] = len_mean_entropy(homerBin_img, 2);
+disp(sprintf('homerbin_img --> %f --> %f --> %f', entropy, bmean, v));
+%figure(3)
+%bar(freq)
 
-%[entropy, bmean, freq, v] = len_mean_entropy(guitarSolo_audio', 2);
-%disp(sprintf('guitarSolo_audio --> %f --> %f --> %f', entropy, bmean, v));
-%%figure(4)
-%%bar(freq)
+[entropy, bmean, freq, v] = len_mean_entropy(guitarSolo_audio', 2);
+disp(sprintf('guitarsolo_audio --> %f --> %f --> %f', entropy, bmean, v));
+%figure(4)
+%bar(freq)
 
-%[entropy, bmean, freq, v] = len_mean_entropy(double(english_txt), 2);
-%disp(sprintf('english_txt --> %f --> %f -> %f', entropy, bmean, v));
-%%figure(5)
-%%bar(freq)
-%%toc
+[entropy, bmean, freq, v] = len_mean_entropy(double(english_txt), 2);
+disp(sprintf('english_txt --> %f --> %f -> %f', entropy, bmean, v));
+%figure(5)
+%bar(freq)
+toc
 
-%disp(sprintf('\nXY // bmean:'));
+%disp(sprintf('\nxy // bmean:'));
 
 %[entropy, bmean, freq, v] = xy(kid_img, 2);
 %disp(sprintf('kid_img --> %f --> %f --> %f', entropy, bmean, v));
@@ -129,6 +129,6 @@ disp(sprintf('Hufflen singles  entropy // bmean:'));
 %disp(sprintf('english_txt --> %f --> %f -> %f', entropy, bmean, v));
 
 
-target = [6 8 9 7 2 4 9 9 4 9 1 4 8 0 1 2 2 6 3 2 0 7 4 9 5 4 8 5 2 7 8 0 7 4 8 5 7 4 3 2 2 7 3 5 2 7 4 9 9 6];
-query = [2 6 4 10 5 9 5 8 0 8];
-mutual_inf(query, target)
+%target = [6 8 9 7 2 4 9 9 4 9 1 4 8 0 1 2 2 6 3 2 0 7 4 9 5 4 8 5 2 7 8 0 7 4 8 5 7 4 3 2 2 7 3 5 2 7 4 9 9 6];
+%query = [2 6 4 10 5 9 5 8 0 8];
+%mutual_inf_v2(query, target)
