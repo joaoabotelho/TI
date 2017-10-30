@@ -137,9 +137,9 @@ text_alphabet = ['A':'Z', 'a':'z'];
 %[entropy, bmean, freq, v] = xy(double(english_txt), 2);
 %disp(sprintf('english_txt --> %f --> %f -> %f', entropy, bmean, v));
 
-%target = [6 8 9 7 2 4 9 9 4 9 1 4 8 0 1 2 2 6 3 2 0 7 4 9 5 4 8 5 2 7 8 0 7 4 8 5 7 4 3 2 2 7 3 5 2 7 4 9 9 6];
-%query = [2 6 4 10 5 9 5 8 0 8];
-%mutual_inf_v2(double(query), double(target), 1)
+target = [6 8 9 7 2 4 9 9 4 9 1 4 8 0 1 2 2 6 3 2 0 7 4 9 5 4 8 5 2 7 8 0 7 4 8 5 7 4 3 2 2 7 3 5 2 7 4 9 9 6];
+query = [2 6 4 10 5 9 5 8 0 8];
+mutual_inf(double(query), double(target), 1)
 
 %mutual_inf((guitarSolo_audio)', (target1)', size(guitarSolo_audio, 1) / 4);
 %mutual_inf((guitarSolo_audio)', (target2)', size(guitarSolo_audio, 1) / 4);

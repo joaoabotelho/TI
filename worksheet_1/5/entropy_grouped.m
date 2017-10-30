@@ -12,7 +12,6 @@ function entropy = entropy_grouped(source, n_column, n_symbols)
     tbl = tabulate(new_source * mul_matrix);
   end
 
-
   probs = nonzeros(tbl(:,3) / 100);
 
   entropy = -sum(probs .* log2(probs))/n_symbols;
