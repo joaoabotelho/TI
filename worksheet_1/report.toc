@@ -1,9 +1,0 @@
-\select@language {portuguese}
-\contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{2}
-\contentsline {section}{\numberline {2}Histograma da Ocurr\IeC {\^e}ncia de S\IeC {\'\i }mbolos}{2}
-\contentsline {section}{\numberline {3}Calculo da Entropia}{2}
-\contentsline {section}{\numberline {4}Distribui\IeC {\c c}\IeC {\~a}o estat\IeC {\'\i }stica e Entropia}{3}
-\contentsline {section}{\numberline {5}C\IeC {\'o}digo de Huffman}{3}
-\contentsline {section}{\numberline {6}Entropia para simbolos agrupados}{4}
-\contentsline {section}{\numberline {7}Informa\IeC {\c c}\IeC {\~a}o M\IeC {\'u}tua}{5}
-\contentsline {section}{\numberline {8}Conclus\IeC {\~a}o}{6}
